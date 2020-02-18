@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: demo
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      config:
+        enabled: true
+        format: YAML
+      discovery:
+        health-check-path: ${server.servlet.context-path:}/actuator/health
+        health-check-interval: 15s
+        prefer-ip-address: true
+        query-passing: true
+      retry:
+        max-attempts: 20
+        max-interval: 5000
